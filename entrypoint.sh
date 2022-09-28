@@ -16,7 +16,7 @@ git clone "https://$API_TOKEN_GITHUB@github.com/$INPUT_DESTINATION_REPO.git" "$C
 echo "Copying contents to git repo"
 OUTPUT_DIR="$CLONE_DIR/$INPUT_DESTINATION_FOLDER"
 
-rsync --exclude="/.*/" --exclude=".*/" -tamv $INPUT_SOURCE_FOLDER $OUTPUT_DIR --delete
+rsync --exclude="/.*/" --exclude=".*/" -tamv . $OUTPUT_DIR --delete
 
 ls $OUTPUT_DIR
 
