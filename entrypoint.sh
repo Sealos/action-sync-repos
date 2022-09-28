@@ -21,6 +21,7 @@ rsync --exclude="/.*/" --exclude=".*/" -tamv . $OUTPUT_DIR --delete
 ls $OUTPUT_DIR
 
 cd "$CLONE_DIR"
+git config --global --add safe.directory $CLONE_DIR
 git checkout -b "$INPUT_DESTINATION_HEAD_BRANCH"
 
 echo "Adding git commit"
