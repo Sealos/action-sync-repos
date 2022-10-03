@@ -32,11 +32,11 @@ then
   echo "Pushing git commit"
   git push -f -u origin HEAD:$INPUT_DESTINATION_HEAD_BRANCH
 
-  echo "Creating a pull request"
+  echo "Creating a pull request if it doesn't exist"
   gh pr create -t $INPUT_DESTINATION_HEAD_BRANCH \
                -b $INPUT_DESTINATION_HEAD_BRANCH \
                -B $INPUT_DESTINATION_BASE_BRANCH \
-               -H $INPUT_DESTINATION_HEAD_BRANCH
+               -H $INPUT_DESTINATION_HEAD_BRANCH || true
 else
   echo "No changes detected"
 fi
